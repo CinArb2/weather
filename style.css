@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+/* font-family: 'Roboto', sans-serif; */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.2;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.weather_info{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-image: url('./incons/luke-stackpoole-mOEqOtmuPG8-unsplash.jpg');
+  background-color: #0000004f;
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.temperature{
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.city{
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.weather_form{
+  position: relative;
+}
+
+input[type=text]{
+  border-radius: 20px;
+  border: 1px solid white;
+  padding: 0.3rem;
+  background-color: transparent;
+}
+
+.icon-search{
+  position: absolute;
+  top: 0.3rem;
+  right: 5px;
+  background-image: url('./incons/icons8-search.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+
+input[type=text]::placeholder{
+  color: #ffffff6e;
+  padding-left: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.weather_states{
+  display: block;
+  letter-spacing: 2px;
+}
