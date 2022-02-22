@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
 
-/* font-family: 'Roboto', sans-serif; */
+/* font-family: 'Overpass', sans-serif; */
 
 /* Box sizing rules */
 *,
@@ -23,12 +23,6 @@ dd {
   margin: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
-
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
@@ -39,13 +33,8 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.2;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Overpass', sans-serif;
   color: white;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -63,39 +52,48 @@ select {
   font: inherit;
 }
 
-.weather_info{
-  height: 100vh;
-  display: grid;
-  place-content: center;
-  gap: 2rem;
-  background-image: url('./incons/luke-stackpoole-mOEqOtmuPG8-unsplash.jpg');
-  background-color: #0000004f;
+main{
+  min-height: 100vh;
+  background-image: url('./incons/luke-chesser-IGtutkXikuc-unsplash.jpg');
+  background-color: rgba(0, 0, 0, 0.192);
   background-blend-mode: overlay;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2rem;
 }
 
-.temperature{
-  font-weight: 900;
-  font-size: 2.5rem;
-}
-
-.city{
-  font-weight: 400;
-  font-size: 2rem;
+.weather_info{
+  width: min(80%, 450px);
+  display: grid;
+  place-items: center;
+  gap: 2rem;
 }
 
 .weather_form{
   position: relative;
+  justify-self: flex-end;
+  margin-right: clamp(1rem, 5vw,3rem);
 }
 
 input[type=text]{
   border-radius: 20px;
-  border: 1px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.623);
   padding: 0.3rem;
   background-color: transparent;
   color: white;
+  width: 100px;
+  transition: width 300ms ease;
 }
+
+input[type=text]:hover, 
+input[type=text]:active,
+input[type=text]:focus{
+  width: 200px;
+}
+
 
 .icon-search{
   position: absolute;
@@ -104,8 +102,8 @@ input[type=text]{
   background-image: url('./incons/icons8-search.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 input[type=text]::placeholder{
@@ -114,7 +112,136 @@ input[type=text]::placeholder{
   font-size: 0.9rem;
 }
 
+.temp-container{
+  width: min(95%, 350px);
+  padding: 4rem 1rem;
+  background: rgba( 255, 255, 255, 0.25 );
+  backdrop-filter: blur( 5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  text-align: center;
+}
+
+.temperature{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 18px rgb(54 57 90 / 71%);
+  cursor: pointer;
+  padding-block: 1.5rem;
+}
+
+.city{
+  padding-top: 2rem;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.icon_weather{
+  margin: 0 auto;
+  width: 230px;
+  animation: jello-horizontal 0.9s both;
+}
+
 .weather_states{
   display: block;
   letter-spacing: 2px;
+  padding-bottom: 1rem;
+}
+
+.temp_info{
+  width: 65%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.temp_info::before{
+  content: '';
+  width: 2px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+}
+
+.temp_info::after{
+  content: '';
+  width: 2px;
+  height: 15px;
+  background-color: white;
+  position: absolute;
+  bottom: 3px;
+}
+
+.box{
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  position: relative;
+}
+
+
+.wind::before{
+  content: '';
+  background-image: url('./incons/icon_wind.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -5px;
+  left: -25px;
+  height: 30px;
+  width: 30px;
+}
+
+.hum::before{
+  content: '';
+  background-image: url('./incons/icon_hum.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -5px;
+  left: -25px;
+  height: 20px;
+  width: 20px;
+}
+
+.icon_not-found{
+  width: 200px;
+  margin: 0 auto;
+}
+
+
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
 }
